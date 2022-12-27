@@ -1,2 +1,2 @@
-# Team_Mini_Project
-미니 프로젝트 최종본
+# mini_project_Team_Git
+미니프로젝트 팀 GIt
