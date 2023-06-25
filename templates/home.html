@@ -18,7 +18,7 @@
           <a href="{% url 'pet:board' %}" class="btn-get-started"
             style="background-color: #FAAB78; text-shadow: 2px 2px 2px  gray; width: 190px; font-size: 15pt; margin-right: 30px;">둘러보기&nbsp;<img
               src="{% static 'assets\img\paw.png' %}" style="width: 15px; height: 15px;"></img></a>
-          <a href="https://animal-mbti-uarte.run.goorm.io/animal_mbti/index.html" class="btn-get-started"
+          <a href="https://dang-bti.netlify.app/" class="btn-get-started"
           style="background-color: #FAAB78; text-shadow: 2px 2px 2px gray; width: 190px; font-size: 15pt;">댕BTI&nbsp;<img
             src="{% static 'assets\img\paw.png' %}" style="width: 15px; height: 15px;"></img></a>
         </div>
@@ -86,16 +86,16 @@
               <div class="wrapgriditem">
                 <header>
                   {%if post.8 == 1%}
-                  <h3><a href="{%url 'pet:post_deatil' post.0%}">{{post.1}}</a></h3>
+                  <h3><a href="{%url 'pet:post_deatil' post.0%}">{{post.1 | truncatechars:25}} </a></h3>
                   {%elif post.8 == 2%}
-                  <h3><a href="{%url 'pet:recommend_detail' post.0%}">{{post.1}}</a></h3>
+                  <h3><a href="{%url 'pet:recommend_detail' post.0%}">{{post.1 | truncatechars:25}}</a></h3>
                   {%else%}
-                  <h3><a href="{%url 'pet:mybaby_detail' post.0%}">{{post.1}}</a></h3>
+                  <h3><a href="{%url 'pet:mybaby_detail' post.0%}">{{post.1 | truncatechars:25}}</a></h3>
                   {%endif%}
                 </header>
                 <section class="post-excerpt">
                   <p>
-                    {{post.2| striptags|  truncatewords:30}} <a class="read-more" href="#"></a>
+                    {{post.2| striptags|  truncatechars:50}} <a class="read-more" href="#"></a>
                   </p>
                 </section>
                 <footer class="post-meta2">
@@ -145,7 +145,7 @@
                   {%endif%}
               <div class="wrapgriditem">
                 <header>
-                  <h4><a href="{{news.get_absolute_url}}">{{news.news_title|linebreaks|truncatewords:10}}</a></h4>
+                  <h4><a href="{{news.get_absolute_url}}">{{news.news_title|linebreaks|truncatechars:30}}</a></h4>
                 </header>
                 <section class="post-excerpt">
                   <p>

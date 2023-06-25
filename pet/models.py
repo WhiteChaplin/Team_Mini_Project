@@ -39,7 +39,7 @@ class PostCategory(models.Model):
 
 # Create your models here.
 class PetPost(models.Model):
-    title = models.CharField(max_length=30)
+    title = models.CharField(max_length=200)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -143,7 +143,7 @@ class KoreaHotel(models.Model):
     kh_hotel_link = models.CharField(max_length=255)
     kh_hotel_name = models.CharField(max_length=50)
     kh_hotel_location = models.CharField(max_length=50)
-    kh_hotel_explain = models.CharField(max_length=255)
+    kh_hotel_explain = models.TextField()
     kh_hotel_score = models.FloatField()
     kh_hotel_review_num = models.IntegerField()
     
@@ -162,7 +162,7 @@ class SGIHotel(models.Model):
     sgi_hotel_img_url = models.CharField(max_length=255)
     sgi_hotel_name = models.CharField(max_length=50)
     sgi_hotel_location = models.CharField(max_length=50)
-    sgi_hotel_explain = models.CharField(max_length=255)
+    sgi_hotel_explain = models.TextField()
     sgi_hotel_score  = models.IntegerField()
     sgi_hotel_review_num = models.IntegerField()
     
@@ -180,7 +180,7 @@ class SGIHotel(models.Model):
 #용품추천 게시판
 class RecommendPost(models.Model):
     #게시판 제목
-    title = models.CharField(max_length=100, null=False)
+    title = models.CharField(max_length=200, null=False)
     #게시글
     content = models.TextField()
     #게시글 생성 날짜
@@ -215,7 +215,7 @@ class RecommendPost(models.Model):
 #내새끼 자랑
 class ShowoffPost(models.Model):
         #게시판 제목
-    title = models.CharField(max_length=100, null=False)
+    title = models.CharField(max_length=200, null=False)
     #게시글
     content = models.TextField()
     #게시글 생성 날짜

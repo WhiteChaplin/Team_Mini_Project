@@ -73,7 +73,7 @@ class PetPostUpdate(LoginRequiredMixin, UpdateView):
 
     def form_valid(self,form):
         current_user = self.request.user #사용자 정보 가져옴
-        if current_user.is_authenticated and (current_user.is_staff or current_user.is_superuser): #인증된 사용자인지 체크
+        if current_user.is_authenticated or (current_user.is_staff or current_user.is_superuser): #인증된 사용자인지 체크
             form.instance.author = current_user #form 즉 post 제작 form의 소유자를 해당 사용자로 지정한다
             #여기서 response는 변수이다. 입력한 form의 입력값들이 다 검증되었는지 저장한다
             form.instance.post_category = PostCategory.objects.get(name='pet_post')
@@ -195,7 +195,7 @@ class RecommendPostCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 
     def form_valid(self,form):
         current_user = self.request.user #사용자 정보 가져옴
-        if current_user.is_authenticated and (current_user.is_staff or current_user.is_superuser): #인증된 사용자인지 체크
+        if current_user.is_authenticated or (current_user.is_staff or current_user.is_superuser): #인증된 사용자인지 체크
             form.instance.author = current_user #form 즉 post 제작 form의 소유자를 해당 사용자로 지정한다
             form.instance.post_category = PostCategory.objects.get(name='recommend_post')
             if form.data.get('category') is "":
@@ -248,7 +248,7 @@ class RecommendPostUpdate(LoginRequiredMixin, UpdateView):
 
     def form_valid(self,form):
         current_user = self.request.user #사용자 정보 가져옴
-        if current_user.is_authenticated and (current_user.is_staff or current_user.is_superuser): #인증된 사용자인지 체크
+        if current_user.is_authenticated or (current_user.is_staff or current_user.is_superuser): #인증된 사용자인지 체크
             form.instance.author = current_user #form 즉 post 제작 form의 소유자를 해당 사용자로 지정한다
             #여기서 response는 변수이다. 입력한 form의 입력값들이 다 검증되었는지 저장한다
             form.instance.post_category = PostCategory.objects.get(name='recommend_post')
@@ -290,7 +290,7 @@ class ShowoffPostCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 
     def form_valid(self,form):
         current_user = self.request.user #사용자 정보 가져옴
-        if current_user.is_authenticated and (current_user.is_staff or current_user.is_superuser): #인증된 사용자인지 체크
+        if current_user.is_authenticated or (current_user.is_staff or current_user.is_superuser): #인증된 사용자인지 체크
             form.instance.author = current_user #form 즉 post 제작 form의 소유자를 해당 사용자로 지정한다
             form.instance.post_category = PostCategory.objects.get(name='show_off_post')
             if form.data.get('category') is "":
@@ -343,7 +343,7 @@ class ShowOffPostUpdate(LoginRequiredMixin, UpdateView):
 
     def form_valid(self,form):
         current_user = self.request.user #사용자 정보 가져옴
-        if current_user.is_authenticated and (current_user.is_staff or current_user.is_superuser): #인증된 사용자인지 체크
+        if current_user.is_authenticated or (current_user.is_staff or current_user.is_superuser): #인증된 사용자인지 체크
             form.instance.author = current_user #form 즉 post 제작 form의 소유자를 해당 사용자로 지정한다
             #여기서 response는 변수이다. 입력한 form의 입력값들이 다 검증되었는지 저장한다
             form.instance.post_category = PostCategory.objects.get(name='show_off_post')

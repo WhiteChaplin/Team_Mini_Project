@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 # from data_crawl.models import Animals, AnimalCategory
 from scripts.func_animals import check,  getSegInfo
 from scripts.ANIMALS_URL import GYEONGGI_URL
-from pet.models import AnimalCategory, Animals
+from pet.models import AnimalCategory, Animals, SaveAnimalCategory
 
 def run():
     for i in range(1,6):
@@ -31,7 +31,7 @@ def run():
                 print('############################################')
             else : 
                 print('정보없음')
-            category = AnimalCategory.objects.get(name='경기도')
+            category = SaveAnimalCategory.objects.get(name='경기도')
             db_link_cnt = Animals.objects.filter(animals_animals_url__iexact = url).count()
             if (db_link_cnt == 0 ) :
                     Animals( animals_category = category , animals_animals_url=url, animals_img_url = img_url, animals_small_kind=small_kind, animals_color=color, animals_sex=sex, animals_year=year, animals_spot=spot, animals_reception_date=reception_date,  animals_character=character, animals_center=center,animals_call=call, animals_location=location).save()

@@ -48,13 +48,16 @@ def home_view(request):
             post_list.append(i)
         for i in post_list3:
             post_list.append(i)
-        print(post_list)
-        print()
-        print(sorted(post_list, key = lambda x : x[3], reverse=True)[:3])
-        print()
-        print(post_list)
-        print()
-        print(type(post_list[0]))
+        #print(post_list)
+        #print()
+        #print(sorted(post_list, key = lambda x : x[3], reverse=True)[:3])
+        #print()
+        #print(post_list)
+        # print()
+        # print(type(post_list[0]))
+        # print(KoreaHotel.objects.all().order_by("kh_hotel_score").reverse()[:3])
+        # print()
+        # print(NewsScrap.objects.all()[:3])
         author_list = []
         for i in sorted(post_list, key = lambda x : x[3], reverse=True)[:3]:
             print(Account.object.values().filter(uid__contains=i[6])[0]["username"])
@@ -69,9 +72,12 @@ def home_view(request):
             "news_list" : NewsScrap.objects.all()[:3]
         }
     else:
-        print("no")
+        #print("no")
         content = {
-            "post_list" : None
+            "post_list" : None,
+            "hotel_list" : KoreaHotel.objects.all().order_by("kh_hotel_score").reverse()[:3],
+            "save_animal_list" : Animals.objects.all()[:5],
+            "news_list" : NewsScrap.objects.all()[:3]
         }
     return render(request,"home.html" ,content)
 

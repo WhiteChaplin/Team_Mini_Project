@@ -1,7 +1,7 @@
 import requests
 import re
 from bs4 import BeautifulSoup
-from pet.models import AnimalCategory, Animals
+from pet.models import AnimalCategory, Animals, SaveAnimalCategory
 from scripts.func_animals import check,  getSegInfo
 from scripts.ANIMALS_URL import SEOUL_URL
 
@@ -31,7 +31,7 @@ def run():
                 print('정보없음')
         
 
-            category = AnimalCategory.objects.get(name='서울')
+            category = SaveAnimalCategory.objects.get(name='서울')
             db_link_cnt = Animals.objects.filter( animals_animals_url__iexact = url).count()
             if (db_link_cnt == 0 ) :
                     print("저장")

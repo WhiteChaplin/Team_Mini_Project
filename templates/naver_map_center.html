@@ -45,7 +45,7 @@
             let infoWindow = null;
             var areaArr = null;  // 지역을 담는 배열 ( 지역명/위도경도 )
             var map = new naver.maps.Map('map', {
-                center: new naver.maps.LatLng(37.58, 127.000111), //지도 시작 지점
+                center: new naver.maps.LatLng(37.4682, 126.8864), //지도 시작 지점
                 zoom: 16,
                 zoomControl: true,
                 zoomControlOptions: {
@@ -245,9 +245,10 @@
                 console.log('coord'+location.toString());
             }
 
-            function onErrorGeolocation(){
+            function onErrorGeolocation(error){
                 //var center = map.getCenter();
                 console.log("dont get location")
+                console.log(error)
             }
 
             window.onload = function () {

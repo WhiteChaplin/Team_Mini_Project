@@ -5,6 +5,27 @@
 	<link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+<script>
+    window.onload = function(){
+        var category = document.querySelectorAll(".cate_item");
+        //console.log(category)
+        var all_check = true
+        for(var i=0; i<category.length; i++){
+            //console.log(category[i].innerHTML);
+            //console.log("{{slug}}")
+            if(category[i].innerHTML == "{{slug}}"){
+                category[i].style.color='white'
+                category[i].style.background = '#FAAB78'
+                all_check = false
+            }
+            console.log(all_check)
+        }
+        if(all_check){
+            category[0].style.color="white"
+            category[0].style.background = '#FAAB78'
+        }
+    }
+</script>
 <section class="blog-list px-3 py-5 p-md-5">
     <nav id="bo_cate">
         <ul>
@@ -36,7 +57,7 @@
                             </div>
                         </div>
                         <div class="col-6 col-sm-6 col-lg-4 feature-1-wrap d-md-flex flex-md-column order-lg-1" >
-                            <h3 style="margin-left: 50px; min-width: 500px; max-width: 1000px;"><a class="text-link" href="https://www.booking.com/{{ hotel.sgi_hotel_link }}"> {{ hotel.sgi_hotel_name | truncatewords:4 }} </a></h3>
+                            <h3 style="margin-left: 50px; min-width: 500px; max-width: 1000px;"><a class="text-link" href="{{ hotel.sgi_hotel_link }}"> {{ hotel.sgi_hotel_name | truncatewords:4 }} </a></h3>
                             <br>
                             <div class="feature-1 d-md-flex">
                                 <div class="align-self-center">
